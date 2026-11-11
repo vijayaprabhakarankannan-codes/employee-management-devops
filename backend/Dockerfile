@@ -1,0 +1,18 @@
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY backend/requirements.txt ./requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend/app.py ./app.py
+
+COPY frontend/ ./frontend/
+
+ENV DB_HOST=postgres
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
