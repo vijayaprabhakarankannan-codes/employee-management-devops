@@ -28,3 +28,7 @@ jobs:
 
       - name: Run automated tests
         run: python -m pytest backend/tests/test_app.py -v
+
+      - name: Build Docker image
+        run: docker build -f backend/Dockerfile -t employee-management:ci .
+
